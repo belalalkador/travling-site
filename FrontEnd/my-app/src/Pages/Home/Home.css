@@ -1,0 +1,68 @@
+.home {
+    width: 100%;
+    height: calc(100vh - 0px); /* Full screen minus header */
+    background-image: url('../../../src/assets/download\ \(13\).jfif'); /* change to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* Make the glass effect cover the whole image */
+  .glass {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* softer transparent layer */
+    backdrop-filter: blur(3px); /* less blur */
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+   
+  }
+  
+  .glass h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .reserve-btn {
+    padding: 12px 25px;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reserve-btn:hover {
+    background-color: #0097a7;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .glass h1 {
+      font-size: 28px;
+    }
+  
+    .reserve-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .glass h1 {
+      font-size: 22px;
+    }
+  
+    .reserve-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  

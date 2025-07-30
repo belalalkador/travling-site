@@ -1,0 +1,27 @@
+.journey-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.bus-front {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.seat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aisle {
+  width: 30px;
+}

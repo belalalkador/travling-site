@@ -1,0 +1,89 @@
+.search-container {
+  background-image: url("../../../../src/assets/download\ \(9\).jfif");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+  color: #fff;
+}
+
+.search-form h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.search-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  color: #333;
+}
+
+.search-form input::placeholder {
+  color: #666;
+}
+
+.search-form button {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0083b0, #00b4db);
+}
+.search-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  background-color: #f9f9f9;
+  color: #333;
+  appearance: none; /* Removes default dropdown styling in some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.search-form select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.search-form select option {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.search-form select:hover {
+  border-color: #4CAF50;
+}

@@ -1,0 +1,52 @@
+.companies-container {
+    min-height: 100vh;
+    background-image: url('../../../../src/assets/download\ \(11\).jfif');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .companies-title {
+    font-size: 2rem;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+  }
+  .show-journeys-button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .show-journeys-button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .companies-select {
+    padding: 10px 15px;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .companies-error {
+    color: red;
+    font-size: 1.1rem;
+  }
+  
+  .companies-selected {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 10px;
+  }
+  

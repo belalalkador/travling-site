@@ -1,0 +1,32 @@
+.btn{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+
+.seat {
+  width: 40px;
+  display: block;
+  height: 40px;
+  margin: 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.seat.available {
+  background-color: #3498db; /* blue */
+}
+.seat.available:hover {
+  background-color: greenyellow; /* blue */
+}
+
+.seat.booked {
+  background-color: #e74c3c; /* red */
+}
+
+

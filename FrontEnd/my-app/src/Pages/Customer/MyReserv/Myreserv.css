@@ -1,0 +1,208 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --success-color: #4cc9f0;
+  --danger-color: #f72585;
+  --warning-color: #f8961e;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.reservations-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.reservations-title {
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: var(--danger-color);
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
+
+.no-reservations {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.reservation-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.reservation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reservation-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.active {
+  background-color: var(--success-color);
+}
+
+.status-badge.completed {
+  background-color: var(--warning-color);
+}
+
+.status-badge.canceled {
+  background-color: var(--danger-color);
+}
+
+.reservation-details {
+  padding: 1rem;
+}
+
+.detail-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.detail-value {
+  color: #555;
+}
+
+.reservation-footer {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reservation-date {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.action-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination-controls button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reservations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reservation-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .reservation-date {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reservations-title {
+    font-size: 1.5rem;
+  }
+  
+  .detail-group {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

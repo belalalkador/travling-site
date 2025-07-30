@@ -1,0 +1,50 @@
+.journeys-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.journeys-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.no-journeys {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.journey-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.journey-card {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+}
+
+.journey-card h3 {
+  margin-top: 0;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.journey-card p {
+  margin: 6px 0;
+  color: #333;
+  font-size: 0.95rem;
+}

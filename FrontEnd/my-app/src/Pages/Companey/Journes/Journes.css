@@ -1,0 +1,56 @@
+.journey-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    direction: rtl;
+  }
+  
+  .journey-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .journey-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .journey-table th,
+  .journey-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .journey-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .journey-row {
+    cursor: pointer;
+  
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .journey-row td{
+    color: black;
+  }
+  
+  .journey-row:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  

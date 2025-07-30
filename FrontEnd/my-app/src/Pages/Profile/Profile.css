@@ -1,0 +1,88 @@
+.profile-background {
+    background-image: url('../../../src/assets/images\ \(7\).jfif'); /* your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    padding: 40px;
+    width: 70%;
+
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  .profile-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .profile-glass p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .profile-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .profile-buttons button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  /* Button colors */
+  .edit-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .logout-btn {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Hover effects */
+  .edit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .logout-btn:hover {
+    background-color: #1e88e5;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .profile-glass {
+      padding: 20px;
+    }
+  
+    .profile-title {
+      font-size: 1.5rem;
+    }
+  }
+  
