@@ -6,14 +6,21 @@ const reservationSchema = new mongoose.Schema({
     ref: 'Journey',
     required: true,
   },
+
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
+
   seatId: {
     type: String, // Changed to String since it's not a reference
     required: true,
+  },
+
+  tripTime:{
+    type:Date,
+    required:true
   },
  
  

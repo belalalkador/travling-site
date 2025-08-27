@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import morgan from "morgan"; // ✅ import morgan
+import morgan from "morgan"; 
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-
+import { app, server } from './socket/socket.js';
 import userRouter from "./routers/userRouter.js";
 import DBconnect from "./config/DBconnect.js";
 import adminRouter from "./routers/adminRouter.js";
@@ -12,15 +12,10 @@ import customerRouter from "./routers/customerRouter.js";
 
 dotenv.config();
 
-const app = express();
-
 // ✅ Use morgan middleware for logging HTTP requests
 app.use(morgan("dev"));
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -32,6 +27,6 @@ app.use("/customer/api/v1", customerRouter);
 DBconnect();
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`✅ السيرفر شغال على http://localhost:${PORT}`);
 });

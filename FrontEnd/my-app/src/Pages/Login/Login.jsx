@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Layout } from '../../Layout/Layout';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './LogIn.css'; // Make sure you have the styles
 import { useUser } from '../../Context/Context';
+import bg from '../../assets/download-8.jpg';
 
 function LogIn() {
-  const {setUser}=useUser()
+  const { setUser } = useUser();
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
   const handleChange = (e) => {
-    setFormData({ 
-      ...formData, 
-      [e.target.name]: e.target.value 
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/user/api/v1/login', formData,{
-        withCredentials:true,
+      const response = await axios.post('http://localhost:3000/user/api/v1/login', formData, {
+        withCredentials: true,
       });
-      
+
       if (response.status === 200) {
         alert('Login successful! 🎉');
-        setUser(response.data.user)
-       
-        navigate('/'); 
+        setUser(response.data.user);
+        navigate('/');
       } else {
         alert('Login failed.');
       }
@@ -43,10 +43,13 @@ function LogIn() {
 
   return (
     <Layout>
-      <div className="login-background">
-        <div className="login-glass">
-          <h1 className="login-title">Log In</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
+      <div
+        className="flex items-center justify-center h-screen px-4 bg-center bg-cover"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
+        <div className="w-full max-w-md p-6 text-center text-white shadow-xl bg-white/20 backdrop-blur-md rounded-2xl sm:p-8">
+          <h1 className="mb-6 text-3xl font-bold">Log In</h1>
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"
@@ -54,6 +57,7 @@ function LogIn() {
               value={formData.email}
               onChange={handleChange}
               required
+              className="px-4 py-3 text-white placeholder-gray-200 rounded-lg outline-none bg-white/30"
             />
             <input
               type="password"
@@ -62,11 +66,20 @@ function LogIn() {
               value={formData.password}
               onChange={handleChange}
               required
+              className="px-4 py-3 text-white placeholder-gray-200 rounded-lg outline-none bg-white/30"
             />
-            <button type="submit">Log In</button>
+            <button
+              type="submit"
+              className="py-3 mt-2 font-semibold text-white transition-colors duration-300 rounded-lg bg-cyan-500 hover:bg-cyan-700"
+            >
+              Log In
+            </button>
           </form>
-          <p className="login-signup">
-            Don't have an account? <Link to="/signup">Sign Up</Link>
+          <p className="mt-6 text-sm">
+            Don't have an account?{' '}
+            <Link to="/signup" className="font-semibold text-green-300 hover:underline">
+              Sign Up
+            </Link>
           </p>
         </div>
       </div>
@@ -75,3 +88,4 @@ function LogIn() {
 }
 
 export default LogIn;
+ 

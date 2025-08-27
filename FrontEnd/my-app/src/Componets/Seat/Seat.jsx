@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
-import './Seat.css'
+import React from "react";
 
-const Seat = ({ number, status, journeyId, seatId, }) => {
+const Seat = ({ seatNumber, isBooked, onClick }) => {
   return (
-   <button className="btn" disabled={status === 'booked'} >
-     <Link to={`/reserve/company-journeys/${journeyId}/${seatId}`}className={`seat ${status}`}>
-        {number}
-           
-     </Link>
-   </button>
+    <button
+      onClick={onClick}
+      disabled={isBooked}
+      className={`w-10 h-10 rounded-md font-bold transition-all duration-200 ${
+        isBooked
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-blue-500 hover:bg-green-400 cursor-pointer hover:scale-110"
+      }`}
+    >
+      {seatNumber}
+    </button>
   );
-}
-
+};
 
 export default Seat;
-
-

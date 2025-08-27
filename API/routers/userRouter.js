@@ -7,6 +7,8 @@ import {
   updateUser,
   deleteUser,
   getUserInfo,
+  markAsRead,
+  deleteNotification,
 } from "../controllers/userController.js";
 
 import verifyToken from "../middlwaers/verfiy.js";
@@ -30,6 +32,10 @@ userRouter.delete("/delete",verifyToken,deleteUser);
 
 // جلب معلومات المستخدم (بدون كلمة المرور)
 userRouter.get("/me",verifyToken,getUserInfo);
+
+userRouter.put("/notification/:id",verifyToken,markAsRead);
+
+userRouter.delete("/notification/:id",verifyToken,deleteNotification);
 
 
 

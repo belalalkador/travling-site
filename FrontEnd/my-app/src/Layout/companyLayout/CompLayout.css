@@ -1,4 +1,4 @@
-.layout-container {
+/* .layout-container {
     min-height: 100vh;
     background-color: #f5f5f5;
   }
@@ -41,4 +41,36 @@
   .main-content {
     padding: 24px;
   }
-  
+
+
+
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const CompanyDashboard = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex flex-col justify-center items-center h-full text-white text-center space-y-6">
+      <h1 className="text-4xl font-bold">Welcome to Your Company Dashboard</h1>
+      <p className="text-lg max-w-xl">
+        This is your control panel to manage and monitor journeys efficiently. You can add new journeys, view all records, and more.
+      </p>
+      <button
+        onClick={() => navigate('/company-dashboard/add')}
+        className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg font-semibold text-white transition"
+      >
+        Start Work
+      </button>
+    </div>
+  );
+};
+
+export default CompanyDashboard;
+
+
+
+
+
+   */

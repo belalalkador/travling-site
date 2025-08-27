@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import { hashPassword,comparePassword } from "../utils/hash.js";
 import jwt from "jsonwebtoken";
+import Notification from '../models/notificationModel.js'
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -181,19 +182,70 @@ export const logoutUser = (req,res) => {
   }
 };
 
+// controllers/userController.js
+
 export const getUserInfo = async (req, res) => {
   try {
-    const userId = req.user.userId; // معرف المستخدم من التوكن
+    const userId = req.user.userId;
 
-    const user = await User.findById(userId).select("-password"); // استبعاد كلمة المرور
-
+    // جلب بيانات المستخدم مع استبعاد كلمة المرور
+    const user = await User.findById(userId).select("-password");
     if (!user) {
       return res.status(404).json({ message: "المستخدم غير موجود" });
     }
 
-    return res.status(200).json({ user });
+    // جلب الإشعارات الخاصة بالمستخدم
+    const notifications = await Notification.find({ userId })
+      .sort({ createdAt: -1 }) // الأحدث أولاً
+      .lean(); 
+
+    return res.status(200).json({
+      user,
+      notifications,
+    });
   } catch (error) {
     console.error("Error in getUserInfo:", error.message);
-    return res.status(500).json({ message: "حدث خطأ أثناء جلب بيانات المستخدم", error: error.message });
+    return res.status(500).json({
+      message: "حدث خطأ أثناء جلب بيانات المستخدم والإشعارات",
+      error: error.message,
+    });
+  }
+};
+
+// 1. Mark notification as read
+export const markAsRead = async (req, res) => {
+  try {
+    const { id } = req.params; // notificationId from URL
+
+    const notification = await Notification.findByIdAndUpdate(
+      id,
+      { isRead: true },
+      { new: true } // return updated doc
+    );
+
+    if (!notification) {
+      return res.status(404).json({ message: "Notification not found" });
+    }
+
+    res.status(200).json({ message: "Notification marked as read", notification });
+  } catch (error) {
+    res.status(500).json({ message: "Error marking notification", error: error.message });
+  }
+};
+
+// 2. Delete a notification
+export const deleteNotification = async (req, res) => {
+  try {
+    const { id } = req.params; // notificationId from URL
+
+    const notification = await Notification.findByIdAndDelete(id);
+
+    if (!notification) {
+      return res.status(404).json({ message: "Notification not found" });
+    }
+
+    res.status(200).json({ message: "Notification deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting notification", error: error.message });
   }
 };

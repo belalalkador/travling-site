@@ -3,7 +3,9 @@ import {
   addJourney,
   getAllJourneysForCompany,
   deleteJourney,
-  updateJourney
+  updateJourney,
+  getJourneyDetails,
+  removeUserFromJourney
 } from '../controllers/companeyController.js';
 import verifyToken from '../middlwaers/verfiy.js';
 
@@ -38,5 +40,11 @@ comRouter.delete('/journey/:id', verifyToken, deleteJourney);
 
 // ✅ Update a specific journey by ID
 comRouter.put('/journeys/:id', verifyToken, updateJourney);
+
+
+comRouter.get('/journey/:id', verifyToken, getJourneyDetails);
+
+comRouter.patch('/journey-seat/:id', verifyToken, removeUserFromJourney);
+
 
 export default comRouter;
