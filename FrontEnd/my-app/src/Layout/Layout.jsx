@@ -21,7 +21,7 @@ export const Layout = ({ children }) => {
     return () => {
       socket.off("newNotification", handleNewNotification);
     };
-  }, [socket, setNotifications]);
+  }, [socket]);
 
   return (
     <div className="flex flex-col w-full min-h-screen overflow-auto">
