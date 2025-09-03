@@ -128,15 +128,7 @@ const Search = () => {
             <option value="المساء">بعد 6 مساءً</option>
           </select>
 
-          {/* Price */}
-          <input
-            type="number"
-            placeholder="السعر (اختياري)"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            min="0"
-            className="w-full p-3 mb-6 text-lg text-gray-800 placeholder-gray-500 border border-gray-300 rounded-lg bg-white/90 focus:ring-2 focus:ring-teal-400 focus:outline-none"
-          />
+
 
           {/* Button */}
           <button
