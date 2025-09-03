@@ -308,21 +308,7 @@ const AddJourney = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div>
-            <label className="block mb-2 font-semibold">نوع الحافلة</label>
-            <select
-              name="busType"
-              value={formData.busType}
-              onChange={handleChange}
-              className="w-full px-5 py-3 text-black bg-white border rounded-lg border-white/30 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              style={{ backgroundColor: 'white', color: '#000' }}
-            >
-              <option value="1x2x3" className="text-black">1x2x3</option>
-              <option value="2x2x3" className="text-black">2x2x3</option>
-              <option value="2x2x2" className="text-black">2x2x2</option>
-              <option value="2x1x3" className="text-black">2x1x3</option>
-            </select>
-          </div>
+    
 
           <div>
             <label className="block mb-2 font-semibold">عدد المقاعد</label>
