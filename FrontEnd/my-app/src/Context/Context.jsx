@@ -8,7 +8,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); 
-  const [notifications, setNotifications] = useState([]); // ✅ notifications state
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -16,9 +16,7 @@ export const UserProvider = ({ children }) => {
         const response = await axios.get('http://localhost:3000/user/api/v1/me', { withCredentials: true });
         setUser(response.data.user); 
 
-        // If backend also sends notifications with the user, use them:
         if (response.data.notifications) {
-          console.log(response.data.notifications)
           setNotifications(response.data.notifications);
         }
 
@@ -33,6 +31,16 @@ export const UserProvider = ({ children }) => {
 
     fetchUser();
   }, []);
+
+  // ⏳ Show loader while fetching
+ // ⏳ Show loader while fetching
+if (loading) {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-12 h-12 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+    </div>
+  );
+}
 
   return (
     <UserContext.Provider value={{ user, setUser, loading, notifications, setNotifications }}>
