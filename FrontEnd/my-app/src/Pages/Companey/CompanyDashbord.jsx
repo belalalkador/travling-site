@@ -78,7 +78,7 @@ const totalReservations = journeys.reduce((acc, journey) => {
                 <p className="text-4xl font-bold">{totalReservations}</p>
               </div>
               <div className="p-6 bg-purple-600 rounded-lg shadow-lg">
-                <h2 className="mb-2 text-2xl font-semibold">Revenue (USD)</h2>
+                <h2 className="mb-2 text-2xl font-semibold">Revenue (S.Y)</h2>
                 <p className="text-4xl font-bold">${revenue.toLocaleString()}</p>
               </div>
             </>
